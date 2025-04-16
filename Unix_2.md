@@ -1,16 +1,32 @@
 # Part 2: Advanced Unix
-It's important to keep in mind the distinction between working on the command line _locally_ versus _remotely_. When you're working locally, you see the file structure of your own computer. When you work remotely, you see the file structure of the Explorer Cluster (EC). For Tutorial 1, you worked locally. For Tutorial 2, you'll log onto EC and work remotely.
+It's important to keep in mind the distinction between working on the command line _locally_ versus _remotely_. When you're working locally, you see the file structure of your own computer. When you work remotely, you see the file structure of the Explorer Cluster (EC). For Unix_1, you worked locally. For Unix_2, you'll log onto EC and work remotely.
+
+There are three distinct directories associated with your account: home, scratch, and student. When you log onto the system, you will be in your **home** directory by default. A **scratch** directory is available for you to play around in. And you'll submit your assignments in your **student** directory. Each of the paths includes your username. For example, mine look like this:
+
+`/home/jhenzy/
+/scratch/jhenzy/
+/courses/BIOL3411.202540/students/jhenzy/`
+
+As you can see, your student directory is part of a larger courses directory. This directory also includes shared data files you can access (more on this below).
 
 ## U31: Log onto EC
 
 `ssh <login_name>@login.explorer.northeastern.edu`
 
+As mentioned previously, you are by default in your home directory. You also are on a node on the cluster known as the login node. To avoid interfering with the operation of the cluster, you should switch to a computing node, using the command:
+
+`srun --pty /bin/bash`
+
+Wait a few seconds for a prompt to appear that has a c plus a number. The c indicates you are on the computing node.
+
 ## U32: Familiarize yourself with the shared files
-Navigate to our course's folders and use the `ls` command to see what's there:
+Navigate to our course's folders and use the `ls` command to explore the file structure:
 
 `cd /courses/BIOL3411.202530`
 
 **Whenever you're asked to perform an exercises with a file from any of these folders, COPY it to your own directory first.**
+
+For this tutorial, you'll need to COPY into your student directory the three files in the shared data folder, UNIX_files. 
 
 #### Task U32.1
 Use a command to show the names of the files in the "/courses/BIOL3411.202530/data" folder. You'll need to access some of these files in this Tutorial. 
