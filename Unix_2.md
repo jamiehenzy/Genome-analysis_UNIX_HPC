@@ -3,9 +3,9 @@ It's important to keep in mind the distinction between working on the command li
 
 There are three distinct directories associated with your account: home, scratch, and student. When you log onto the system, you will be in your **home** directory by default. A **scratch** directory is available for you to play around in. And you'll submit your assignments in your **student** directory. Each of the paths includes your username. For example, mine look like this:
 
-`/home/jhenzy/
-/scratch/jhenzy/
-/courses/BIOL3411.202540/students/jhenzy/`
+`/home/jhenzy/`
+`/scratch/jhenzy/`
+`/courses/BIOL3411.202540/students/jhenzy/`
 
 As you can see, your student directory is part of a larger courses directory. This directory also includes shared data files you can access (more on this below).
 
