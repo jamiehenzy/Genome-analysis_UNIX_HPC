@@ -24,10 +24,9 @@ You are probably used to working with programs like the Apple Finder or the Wind
 
 ## U1. The Terminal
 
-A terminal is the common name for the program that does two main things. It allows you to type input to the computer (i.e. run programs, move/view files etc.) and it allows you to see output from those programs. If you're working on a Mac, you can open the application known as Terminal OR you can log onto the Discovery cluster and work from your directory there. If you're working on a PC, you'll need to log onto the Discovery Cluster through your emulator (e.g. MobaXterm or puTTY).
+A terminal is the common name for the program that does two main things. It allows you to type input to the computer (i.e. run programs, move/view files etc.) and it allows you to see output from those programs. If you're working on a Mac, you can open the application known as Terminal. If you're working on a PC, you'll need to use Windows Subsystem for Linus (WSL).
 
-#### Task U1.1
-Once you are in your DC directory or on Terminal, you should see something that looks like the following (any text that appears inside your terminal window will look different):
+Once you are in Terminal, you should see something that looks like the following (any text that appears inside your terminal window will look different):
 
 ![alt text](https://github.com/jamiehenzy/Genome-analysis_Unit_1/blob/assets/terminal.png)
 
