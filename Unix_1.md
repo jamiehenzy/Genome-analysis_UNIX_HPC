@@ -59,6 +59,9 @@ There are four things that you should note here:
 3. The output of the `ls` command lists five things. In this case, they are all directories, but they could also be files. We'll learn how to tell them apart later on. 
 4. After the `ls` command finishes it produces a new command prompt, ready for you to type your next command.
 
+#### Task U2.1
+Go to your home directory and use the `ls` command to display the contents.
+
 ---
 
 ## U3: The Unix tree
@@ -71,7 +74,7 @@ All Macs have an applications directory where all the GUI (graphical user interf
 
 ---
 
-## U4: Finding out where you are
+## U4: Finding out where you are
 
 There may be many hundreds of directories on any Unix machine, so how do you know which one you are in? The command `pwd` will Print the Working Directory:
 
