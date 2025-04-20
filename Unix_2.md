@@ -22,14 +22,14 @@ Wait a few seconds for a prompt to appear that has a c plus a number. The c indi
 ## U32: Familiarize yourself with the shared files
 Navigate to our course's folders and use the `ls` command to explore the file structure:
 
-`cd /courses/BIOL3411.202530`
+`cd /courses/BIOL3411.202540`
 
 **Whenever you're asked to perform an exercises with a file from any of these folders, COPY it to your own directory first.**
 
 For this tutorial, you'll need to COPY into your student directory the three files in the shared data folder, UNIX_files. 
 
 #### Task U32.1
-Use a command to show the names of the files in the "/courses/BIOL3411.202530/data" folder. You'll need to access some of these files in this Tutorial. 
+Use a command to show the names of the files in the "/courses/BIOL3411.202540/data" folder. You'll need to access some of these files in this Tutorial. 
 
 ## How to Become a Unix power user
 
