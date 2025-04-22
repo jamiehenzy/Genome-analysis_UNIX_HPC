@@ -1,7 +1,5 @@
-
+# Part 3: Applying UNIX commands to sequencing files and data
 ---
-
-# Working With Files
 
 In this tutorial, you'll strengthen and expand your UNIX skills, applying them to sequencing data and information on sea cucumbers. Download the data from the website below: 
 
