@@ -642,6 +642,6 @@ Look around at some of the files in your messiest folder, which is likely either
 #### Task U30.2
 First use `ls` to show the files before they are organized. Then give permission to `cleanup.sh` and run it. Use `ls` again to show the newly organized files.
 
-Did you notice the #!/bin/bash line in this script? There are several different types of shells in Unix, and this line makes it clearer that a) that this is actually a file that can be treated as a program and b) that it will be a bash script (bash is a type of Unix shell). As a general rule, all types of scriptable programming languages should have a similar line as the first line in the program.
+Did you notice the `#!/bin/bash` line in this script? There are several different types of shells in Unix, and this line makes it clearer that a) that this is actually a file that can be treated as a program and b) that it will be a bash script (bash is a type of Unix shell). As a general rule, all types of scriptable programming languages should have a similar line as the first line in the program.
 
 ---
