@@ -1,34 +1,15 @@
----
-title: "Marine Genomics"
-author: 
-date: 
-output:
-  bookdown::html_book:
-    toc: yes
-    css: toc.css
+
 ---
 
-```{r setup2, include=FALSE}
-knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6, fig.align = "center")
-```
+# Working With Files
 
-# Week 2: Working With Files
-
-<center>
-
-<img src="figs/fig_week2/1200px-Bash_Logo_Colored.svg.png" width="300" height="300" />
-
-</center>
-
-
-Before we start, make sure to clone or update the github folder MarineGenomics in the user directory 
+In this tutorial, you'll strengthen and expand your UNIX skills, applying them to sequencing data and information on sea cucumbers. Download the data from the website below: 
 
 ```html
-cd /home/margeno/
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2.tar.gz
 ```
 
-use tar to uncompress and unzip the file
+Use tar to uncompress and unzip the file
 
 ```html
 
@@ -36,40 +17,15 @@ tar -xzvf week2.tar.gz
 
 ```
 
-* Questions:
-  + How can I view and search file contents?
-  + How can I create, copy and delete files and directories?
-  + How can I control who has permission to modify a file?
-  + How can I repeat recently used commands?
-* Objectives:
-  + View, search within, copy, move, and rename files. Create new directories.
-  + Use wildcards (`*`) to perform operations on multiple files.
-  + Make a file read only.
-  + Use the `history` command to view and repeat recently used commands.
-* Keypoints:
-  + You can view file contents using `less`, `cat`, `head` or `tail`.
-  + The commands `cp`, `mv`, and `mkdir` are useful for manipulating existing files and creating new directories.
-  + You can view file permissions using `ls -l` and change permissions using `chmod`.
-  + The `history` command and the up arrow on your keyboard can be used to repeat recently used commands.
-
-## Our data set: FASTQ files
+## FASTQ files
 
 Now that we know how to navigate around our directory structure, let's
-start working with our sequencing files. We did a sequencing experiment and 
+start working with some sequencing files. We did a sequencing experiment and 
 have two results files, which are stored in our `untrimmed_fastq` directory. 
 
 ## Wildcards
 
-Navigate to your `untrimmed_fastq` directory:
-
-
-```html
-$ cd ~/MarineGenomics/Week2/untrimmed_fastq
-```
-
-
-We are interested in looking at the FASTQ files in this directory. We can list
-all files with the .fastq extension using the command:
+Navigate to your `untrimmed_fastq` directory. How can we list all files in the directory that have the fastq extension?
 
 ```html
 $ ls *.fastq
@@ -80,11 +36,7 @@ $ ls *.fastq
 SRR097977.fastq  SRR098026.fastq
 ```
 
-
-The `*` character is a special type of character called a wildcard, which can be used to represent any number of any type of character. 
-Thus, `*.fastq` matches every file that ends with `.fastq`. 
-
-This command: 
+Hopefully you remembered that the `*` character is a wildcard. Try this command: 
 
 ```html
 $ ls *977.fastq
@@ -96,9 +48,9 @@ SRR097977.fastq
 ```
 
 
-lists only the file that ends with `977.fastq`.
+It lists only the file that ends with `977.fastq`.
 
-This command:
+Open a second Terminal window to work in locally. This command:
 
 ```html
 $ ls /usr/bin/*.sh
