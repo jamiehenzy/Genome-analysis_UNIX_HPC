@@ -62,7 +62,7 @@ $ ls /usr/bin/*.sh
 ```
 
 
-Lists every file in `/usr/bin` that ends in the characters `.sh`.
+lists every file in `/usr/bin` that ends in the characters `.sh`.
 Note that the output displays __full__ paths to files, since
 each result starts with `/`.
 
@@ -347,7 +347,7 @@ A!@B!BBB@ABAB#########!!!!!!!######
 
 
 
-## Details on the FASTQ format
+## Details on FASTQ format
 
 Although it looks complicated (and it is), it's easy to understand the
 [fastq](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format
