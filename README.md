@@ -1,1 +1,1 @@
-Material for Unit 1 of the Genome Analysis course at Northeastern University lives here.
+This repo contains material for Assignment 1 of the Genome Analysis course at Northeastern University. You'll learn to navigate your own file system and that of the high-performance computing cluster via the command line, and to perform basic manipulations of files containing sequences and related information.
