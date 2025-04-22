@@ -202,6 +202,9 @@ The `tr` command let's you change a range of characters into another range. But 
 
 The 's' part of the `sed` command puts `sed` in 'substitute' mode, where you specify one pattern (between the first two forward slashes) to be replaced by another pattern (specified between the second set of forward slashes). Note that this doesn't actually change the contents of the file, it just changes the screen output from the previous command in the pipe. We will learn later on how to send the output from a command into a new file.
 
+#### Task U40.1
+Use the `sed` command to change the name of one of your files. 
+
 ---
 
 ## U41: Word up
@@ -234,6 +237,9 @@ This GFF file describes all of the gene-related features from chromosome I of _A
 This step introduces a new concept. Up till now we have sent the output of any command to the screen (this is the default behavior of Unix commands), or through a pipe to another program. Sometimes you just want to redirect the output into an actual file, and that is what the `>` symbol is doing, it acts as one of three [redirection operators][redirection] in Unix.
 
 As already mentioned, the GFF file that we are working with is a standard file format in bioinformatics. For now, all you really need to know is that every GFF file has 9 fields, each separated with a tab character. There should always be some text at every position (even if it is just a '.' character). The last field often is used to store a lot of text.
+
+#### Task U42.1
+Subset the last 500 lines of At_genes.gff into a new file. Make the new file available in your directory.
 
 [redirection]: https://en.wikipedia.org/wiki/Redirection_(Unix)
 [gff]: http://www.ensembl.org/info/website/upload/gff.html
@@ -285,6 +291,9 @@ Now let's imagine that you might want to find which features start earliest in t
 	CDS	4486
 
 Here we first cut out just two columns of interest (3 & 4) from the GFF file. The `-f` option of the `cut` command lets us specify which columns we want to remove. The output is then sorted with the `sort` command. By default, `sort` will sort alphanumerically, rather than numerically, so we use the `-n` option to specify that we want to sort numerically. We have two columns of output at this point and we could sort based on either column. The `-k 2` specifies that we use the second column. Finally, we use the `head` command to get just the first 10 rows of output. These should be lines from the GFF file that have the lowest starting coordinate.
+
+#### Task U43.1
+Use a command to subset two columns (different from the example) from At_genes.gff and display the first 10 lines. 
 
 ---
 
@@ -352,6 +361,9 @@ Before I show you one way of doing this in Unix, think for a moment how you woul
 	CAG
 
 That's a long command, but it does a lot. Try to break down each step and work out what it is doing (you will need to consult the man page for some commands maybe). Notice that I use one of the other redirect operators `<` to read from a file. It took seven Unix commands to do this, but these are all relatively simple Unix commands; it is the combination of them together which makes them so powerful. One might argue that when things get this complex with Unix that it might be easier to do it in Python!
+
+#### Task U45.1
+Explain what each of the seven components of the command above does. 
 
 ---
 
