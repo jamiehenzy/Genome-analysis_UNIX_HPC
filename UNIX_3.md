@@ -1385,13 +1385,9 @@ grep -B1 -A2 -h NNNNNNNNNN *.fastq | grep -v '^--' > scripted_bad_reads.txt
 ```
 
 
-> ### Custom `grep` control
->
-> We introduced the `-v` option in [the previous episode](http://www.datacarpentry.org/shell-genomics/04-redirection/), now we 
-> are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`.
-> 
+### Custom `grep` control
 
-Type your `grep` command into the file and save it as before. Be careful that you did not add the `$` at the beginning of the line.
+We introduced the `-v` option previously, and now we are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`. Type your `grep` command into the file and save it as before. Be careful that you did not add the `$` at the beginning of the line.
 
 Now comes the neat part. We can run this script. Type:
 
@@ -1426,9 +1422,7 @@ Script finished!
 ## Making the script into a program
 
 
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We talked about permissions in [an earlier episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/).
-
-First, let's look at the current permissions.
+We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. First, let's look at the current permissions.
 
 ```html
 $ ls -l bad-reads-script.sh
@@ -1470,7 +1464,3 @@ $ ./bad-reads-script.sh
 
 The script should run the same way as before, but now we've created our very own computer program!
 
-
-## Creature of the Week!
-
-![The Frilled shark!](./figs/creatures/Chlamydoselachus_anguineus_head.jpg)
