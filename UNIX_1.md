@@ -373,7 +373,7 @@ Create another Temp directory (Temp3) and then change directory to your home dir
 
 ## U19: Here, there, and everywhere
 
-The philosophy of not having to be in a directory to do something in that directory, extends to just about any operation that you might want to do in Unix. Just because we need to do something with file X, it doesn't necessarily mean that we have to change directory to wherever file X is located. Let's assume that we just want to quickly check what is in the Code directory before continuing work with whatever we were previously doing in /Users/yourname/Desktop. Which of the following looks more convenient:
+The philosophy of not having to be in a directory to do something in that directory, extends to just about any operation that you might want to do in Unix. Just because we need to do something with file X, it doesn't necessarily mean that we have to change directory to wherever file X is located. Let's assume that we just want to quickly check what is in the Data directory before continuing work with whatever we were previously doing in /Users/yourname/Desktop. Which of the following looks more convenient:
 
 	$ cd Data 
 	$ ls 
@@ -506,7 +506,9 @@ In both cases, we included a deliberate typo when specifying the name of the dir
 
 ## U25: Less is more
 
-So far we have covered listing the contents of directories and moving/copying/deleting either files and/or directories. Now we will quickly cover how you can look at files; in Unix the `less` command lets you view (but not edit) text files. Let's take a look at a file of _Arabidopsis thaliana_ protein sequences. First you'll need to download the "At_proteins.fasta" file from Genome-analysis_Unit_1 repository on GitHub. Then navigate to your Downloads folder and, after using `ls` to check that the file is there:
+So far we have covered listing the contents of directories and moving/copying/deleting either files and/or directories. Now we will quickly cover how you can look at files; in Unix the `less` command lets you view (but not edit) text files. Let's take a look at a file of _Arabidopsis thaliana_ protein sequences. First you'll need to download the "At_proteins.fasta" file from Genome-analysis_UNIX_HPC repository on GitHub. Click on the filename, then right-click the `Raw` button to Copy Link Address. In Terminal, type the command `wget` and paste the link address, then enter.
+
+Now we can look at the contents:
 
 	$ less At_proteins.fasta
 
