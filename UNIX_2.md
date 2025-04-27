@@ -24,12 +24,13 @@ Navigate to our course's folders and use the `ls` command to explore the file st
 
 `cd /courses/BIOL3411.202540`
 
-**Whenever you're asked to perform an exercises with a file from any of these folders, COPY it to your own directory first.**
-
-For this tutorial, you'll need to COPY into your student directory the three files in the shared data folder, UNIX_files. 
 
 #### Task U32.1
 Use a command to show the names of the files in the "/courses/BIOL3411.202540/data" folder. You'll need to access some of these files in this Tutorial. 
+
+**Whenever you're asked to perform an exercises with a file from any of these folders, COPY it to your own directory first.**
+
+For this tutorial you'll need to **copy** the files in the 01_UNIX_HPC/Arabidopsis folder to one of your own directories (you should already have the At_proteins.fasta file from the previous tutorial).
 
 ## How to Become a Unix power user
 
