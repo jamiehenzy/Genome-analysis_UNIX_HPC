@@ -506,7 +506,7 @@ In both cases, we included a deliberate typo when specifying the name of the dir
 
 ## U25: Less is more
 
-So far we have covered listing the contents of directories and moving/copying/deleting either files and/or directories. Now we will quickly cover how you can look at files; in Unix the `less` command lets you view (but not edit) text files. Let's take a look at a file of _Arabidopsis thaliana_ protein sequences. First you'll need to download the "At_proteins.fasta" file from Genome-analysis_UNIX_HPC repository on GitHub. Click on the filename, then right-click the `Raw` button to Copy Link Address. In Terminal, type the command `wget` and paste the link address, then enter.
+So far we have covered listing the contents of directories and moving/copying/deleting either files and/or directories. Now we will quickly cover how you can look at files; in Unix the `less` command lets you view (but not edit) text files. Let's take a look at a file of _Arabidopsis thaliana_ protein sequences. First you'll need to download the "At_proteins.fasta" file from Genome-analysis_UNIX_HPC repository on GitHub. Click on the filename, then right-click the `Raw` button to Copy Link Address. In Terminal, type the command `wget` and paste the link address and hit enter.
 
 Now we can look at the contents:
 
