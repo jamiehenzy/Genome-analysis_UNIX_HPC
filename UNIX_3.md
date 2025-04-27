@@ -1,7 +1,7 @@
 # Part 3: Applying UNIX commands to sequencing data
 ---
 
-In this tutorial, you'll strengthen and expand your UNIX skills, applying them to sequencing data and information on sea cucumbers. Download the data from the website below: 
+In this tutorial, you'll strengthen and expand your UNIX skills, applying them to sequencing data and information on sea cucumbers. In the course data folder you'll find a directory called "untrimmed_fastq", containing files filled with reads produced from samples from sea cucumbers collected off the coast of Washington state.
 
 ```html
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2.tar.gz
