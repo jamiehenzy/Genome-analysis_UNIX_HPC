@@ -1159,8 +1159,9 @@ In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`. 
 
 Now you've written a file. You can take a look at it with `less` or `cat`, or open it up again and edit it with `nano`.
 
-<details><summary>Exercise</summary>
-<p>
+</p>
+</details>
+&nbsp;
 
 ## Exercise
 
