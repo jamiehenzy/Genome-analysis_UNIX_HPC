@@ -1088,9 +1088,6 @@ $ for filename in *.fastq
 > done
 ```
 
-<details><summary>Exercise</summary>
-<p>
-
 
 ### Exercise
 
@@ -1107,6 +1104,10 @@ $ for filename in *.txt
 > done
 ```
 
+</p>
+</details>
+&nbsp;
+
 One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them. 
 
 ```html
@@ -1117,10 +1118,8 @@ $ for filename in *.txt
 > done
 ```
 
-<details><summary>Exercise</summary>
-<p>
 
-## Exercise
+### Exercise
 
 Remove `_2021` from all of the `.txt` files. 
 
@@ -1136,8 +1135,9 @@ $ for filename in *_2021.txt
   > done
 ```
 
-<details><summary>Exercise</summary>
-<p>
+</p>
+</details>
+&nbsp;
  
 
 ## Those keys at the bottom of the nano editor!
@@ -1232,198 +1232,6 @@ Script finished!
 
 
 ## Making the script into a program
-
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. First, let's look at the current permissions.
-
-```html
-$ ls -l bad-reads-script.sh
-```
-
-
-```html
--rw-rw-r-- 1 margeno margeno 75 Apr  8 12:46 bad-reads-script.sh
-```
-
-
-We see that it says `-rw-r--r--`. This shows that the file can be read by any user and written to by the file owner (you). We want to change these permissions so that the file can be executed as a program using `./` . 
-
-We use the command `chmod` like we did earlier when we removed write permissions. Here we are adding (`+`) executable permissions (`+x`).
-
-
-```html
-$ chmod +x bad-reads-script.sh
-```
-
-
-Now let's look at the permissions again.
-
-```html
-$ ls -l bad-reads-script.sh
-```
-
-
-```html
--rwxrwxr-x 1 margeno margeno 75 Apr  8 12:48 bad-reads-script.sh
-```
-
-
-Now we see that it says `-rwxr-xr-x`. The `x`'s that are there now tell us we can run it as a program. So, let's try it! We'll need to put `./` at the beginning so the computer knows to look here in this directory for the program.
-
-```html
-$ ./bad-reads-script.sh
-```
-
-The script should run the same way as before, but now we've created our very own computer program!
-
-## Exercise
-
-Print the file prefix of all of the `.txt` files in our current directory.
-
-<details><summary><span style="color: orange;">Solution</span></summary>
-<p>
-
- ```html
-$ for filename in *.txt
-> do
-> name=$(basename ${filename} .txt)
-> echo ${name}
-> done
-```
-
-</p>
-</details>
-&nbsp;
-
-
-One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them. 
-
-```html
-$ for filename in *.txt
-> do
-> name=$(basename ${filename} .txt)
-> mv ${filename}  ${name}_2021.txt
-> done
-```
-
-<details><summary>Exercise</summary>
-<p>
-
-## Exercise
-
-Remove `_2021` from all of the `.txt` files. 
-
-
-<details><summary><span style="color: orange;">Solution</span></summary>
-<p>
-
-```html
-$ for filename in *_2021.txt
-  > do
-  > name=$(basename ${filename} _2021.txt)    
-  > mv ${filename} ${name}.txt
-  > done
-```
-
- 
-</p>
-</details>
-&nbsp;
-
-
-
-### Those keys at the bottom of the nano editor!
-
-Remember in the first UNIX tutorial how you used an editor called `nano` to create a file? You may have also been perplexed at the row of symbols at the bottom representing options for various tasks. 
-
-![alt text](https://github.com/jamiehenzy/Genome-analysis_Unit_1/blob/assets/nano.png)
-
-The options all begin with a '^' symbol, which indicates the control key (also called the "Ctrl" key). There are various ways in which using the Control key may be described. For example, you may see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down, press the <kbd>X</kbd> key, described as any of:
-
-* `Control-X`
-* `Control+X`
-* `Ctrl-X`
-* `Ctrl+X`
-* `^X`
-* `C-x`
-
-In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`. This means that you can use <kbd>Ctrl</kbd>-<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>-<kbd>O</kbd> to save your file.
-
-Now you've written a file. You can take a look at it with `less` or `cat`, or open it up again and edit it with `nano`.
-
-<details><summary>Exercise</summary>
-<p>
-
-## Exercise
-
-Open nano and add the date to the top of the file and save the file as `README.txt` . 
-
-<details><summary><span style="color: orange;">Solution</span></summary>
-<p>
-
-Use `nano README.txt` to open the file.  
-Add today's date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by `y` and <kbd>Enter</kbd> to save.
-
-
-</p>
-</details>
-&nbsp;
-
-
-## Writing scripts
-
-A really powerful thing about the command line is that you can write scripts. Scripts let you save commands to run them and also lets you put multiple commands together. Though writing scripts may require an additional time investment initially, this can save you time as you run them repeatedly. Scripts can also address the challenge of reproducibility: if you need to repeat an analysis, you retain a record of your command history within the script.
-
-One thing we will commonly want to do with sequencing results is pull out bad reads and write them to a file to see if we can figure out what's going on with them. We're going to look for reads with long sequences of N's like we did before, but now we're going to write a script, so we can run it each time we get new sequences, rather than type the code in by hand each time.
-
-We're going to create a new file to put this command in. We'll call it `bad-reads-script.sh`. The `sh` isn't required, but using that extension tells us that it's a shell script.
-
-```html
-$ nano bad-reads-script.sh
-```
-
-
-Bad reads have a lot of N's, so we're going to look for  `NNNNNNNNNN` with `grep`. We want the whole FASTQ record, so we're also going to get the one line above the sequence and the two lines below. We also want to look in all the files that end with `.fastq`, so we're going to use the `*` wildcard.
-
-```html
-grep -B1 -A2 -h NNNNNNNNNN *.fastq | grep -v '^--' > scripted_bad_reads.txt
-```
-
-
-### Custom `grep` control
-
-We introduced the `-v` option previously, and now we are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`. Type your `grep` command into the file and save it as before. Be careful that you did not add the `$` at the beginning of the line.
-
-Now comes the neat part. We can run this script. Type:
-
-```html
-$ bash bad-reads-script.sh
-```
-
-
-It will look like nothing happened, but now if you look at `scripted_bad_reads.txt`, you can see that there are now reads in the file.
-
-
-## Exercise
-
-We want the script to tell us when it's done.  
-1. Open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.  
-2. Run the updated script.
-
-<details><summary><span style="color: orange;">Solution</span></summary>
-<p>
-
-```
-$ bash bad-reads-script.sh
-Script finished!
-```
-
-</p>
-</details>
-&nbsp;
-
-
-## Making the script into a program
-
 
 We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. First, let's look at the current permissions.
 
