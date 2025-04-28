@@ -167,8 +167,6 @@ $ !260
 
 Type `!` (exclamation point) and then the number of the command from your history.
 You will be glad you learned this when you need to re-run very complicated commands.
-For more information on advanced usage of `history`, read section 9.3 of
-[Bash manual](https://www.gnu.org/software/bash/manual/html_node/index.html).
 
 You can also do this with <kbd>Ctrl</kbd>+<kbd>R</kbd> and a search for `ls` which may be more of less usefull depending on how often you use the command `ls`
 
@@ -376,14 +374,13 @@ above, the quality score line is:
 !!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
 ```
 
-
 The `#` character and each of the `!` characters represent the encoded quality for an 
 individual nucleotide. The numerical value assigned to each of these characters depends on the 
 sequencing platform that generated the reads. The sequencing machine used to generate our data 
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.
 
 
-Each character is assigned a quality score between 0 and 42 as shown in the chart below.
+Each character is assigned a quality score between 0 and 42 as shown here:
 
 ```html
 Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJK
@@ -391,12 +388,13 @@ Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJK
 Quality score:    0........10........20........30........40..                          
 ```
 
-
 Each quality score represents the probability that the corresponding nucleotide call is
-incorrect. This quality score is logarithmically based, so a quality score of 10 reflects a
+incorrect (see image below). This quality score is logarithmically based, so a quality score of 10 reflects a
 base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%. 
 These probability values are the results from the base calling algorithm and dependent on how 
 much signal was captured for the base incorporation. 
+
+![Phred scores](https://github.com/jamiehenzy/Genome-analysis_UNIX_HPC/blob/main/Phred_scores.png)
 
 Looking back at our read: 
 
@@ -406,12 +404,11 @@ NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
 +SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
 !!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
 ```
-
-
 we can now see that the quality of each of the `N`s is 0 and the quality of the only
 nucleotide call (`C`) is also very poor (`#` = a quality score of 2). This is indeed a very
 bad read. 
 
+For an explanation of the statistics behind Phred scores, see [The statistics of quality scores](https://github.com/jamiehenzy/Genome-analysis_UNIX_HPC/blob/main/The%20statistics%20of%20quality%20scores.pdf)
 
 ## Creating, moving, copying, and removing
 
