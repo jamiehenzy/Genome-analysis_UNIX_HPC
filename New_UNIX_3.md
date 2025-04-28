@@ -1135,9 +1135,11 @@ $ for filename in *_2021.txt
   > mv ${filename} ${name}.txt
   > done
 ```
+
 <details><summary>Exercise</summary>
 <p>
  
+
 ## Those keys at the bottom of the nano editor!
 
 Remember in the first UNIX tutorial how you used an editor called `nano` to create a file? You may have also been perplexed at the row of symbols at the bottom representing options for various tasks. 
