@@ -594,26 +594,6 @@ It's always a good idea to check your work with `ls -l backup`. You should see s
 </details>
 &nbsp;
 
-
-## Redirections
-
-* Questions:
-  + How can I search within files?
-  + How can I combine existing commands to do new things?
-* Objectives:
-  + Employ the `grep` command to search for information within files.
-  + Print the results of a command to a file.
-  + Construct command pipelines with two or more stages.
-  + Use `for` loops to run the same command for several input files.
-* Keypoints:
-  + `grep` is a powerful search tool with many options for customization.
-  + `>`, `>>`, and `|` are different ways of redirecting output.
-  + `command > file` redirects a command's output to a file.
-  + `command >> file` redirects a command's output to a file without overwriting the existing contents of the file.
-  + `command_1 | command_2` redirects the output of the first command as input to the second command.
-  + `for` loops are used for iteration.
-  + `basename` gets rid of repetitive parts of names.
-
 ## Searching files
 
 We discussed in a previous episode how to search within a file using `less` and also how tosearch within files without even opening them, using `grep`. `grep` is a command-line utility for searching plain-text files for lines matching a specific set of characters (sometimes called a string) or a particular pattern (which can be specified using something called **regular expressions**). We're going to use grep to find specific substrings of characters. First, the characters:
@@ -646,7 +626,6 @@ matching line, so we add `-B1 -A2` to our grep command:
 ```html
 $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
 ```
-
 
 One of the sets of lines returned by this command is: 
 
@@ -755,7 +734,6 @@ in a file. The FASTQ file may change over time, so given the potential for updat
 make sure your file matches your instructor's output. 
 
 `wc` gives the following output:  
-
 
 
 ```html
@@ -992,8 +970,6 @@ them together, you can do some really powerful things very
 efficiently. 
 
 
-
-
 ## Writing for loops
 
 Loops are key to productivity improvements through automation as they allow us to execute commands repeatedly. 
@@ -1116,7 +1092,7 @@ $ for filename in *.fastq
 <p>
 
 
-## Exercise
+### Exercise
 
 Print the file prefix of all of the `.txt` files in our current directory.
 
