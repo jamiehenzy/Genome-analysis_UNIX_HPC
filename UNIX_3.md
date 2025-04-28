@@ -408,7 +408,7 @@ we can now see that the quality of each of the `N`s is 0 and the quality of the 
 nucleotide call (`C`) is also very poor (`#` = a quality score of 2). This is indeed a very
 bad read. 
 
-For an explanation of the statistics behind Phred scores, see [The statistics of quality scores](https://github.com/jamiehenzy/Genome-analysis_UNIX_HPC/blob/main/The%20statistics%20of%20quality%20scores.pdf)
+For an explanation of the statistics behind Phred scores, see [The statistics of quality scores.](https://github.com/jamiehenzy/Genome-analysis_UNIX_HPC/blob/main/The%20statistics%20of%20quality%20scores.pdf)
 
 ## Creating, moving, copying, and removing
 
@@ -426,7 +426,7 @@ and change the file permissions so that we can read from, but not write to, the 
 
 First, let's make a copy of one of our FASTQ files using the `cp` command. 
 
-Navigate to the `~/MarineGenomics/week2/untrimmed_fastq` directory and enter:
+Navigate to the `untrimmed_fastq` directory and enter:
 
 ```html
 $ cp SRR098026.fastq SRR098026-copy.fastq
@@ -506,12 +506,11 @@ characters relate to the permissions that the file owner has, the next three rel
 three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions
 that deal with your permissions (as the file owner). 
 
-![Permissions breakdown](./figs/fig_week2/rwx_figure.png)
+![Permissions breakdown](https://github.com/jamiehenzy/Genome-analysis_UNIX_HPC/blob/main/permissions.jpg)
 
 Here the three positions that relate to the file owner are `rw-`. The `r` means that you have permission to read the file, the `w` 
 indicates that you have permission to write to (i.e. make changes to) the file, and the third position is a `-`, indicating that you 
-don't have permission to carry out the ability encoded by that space (this is the space where `x` or executable ability is stored, we'll 
-talk more about this in [a later lesson](http://www.datacarpentry.org/shell-genomics/05-writing-scripts/)).
+don't have permission to carry out the ability encoded by that space (this is the space where `x` or executable ability is stored).
 
 Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`. 
 
@@ -570,7 +569,7 @@ you will be asked whether you want to override your permission settings.
 
 ## Exercise
 
-Starting in the `~/MarineGenomics/Week2/untrimmed_fastq/` directory, do the following:
+Starting in the `untrimmed_fastq` directory, do the following:
 1. Make sure that you have deleted your backup directory and all files it contains.  
 2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't learned yet how to do this with a wildcard.)  
 3. Use a wildcard to move all of your backup files to a new backup directory.   
@@ -617,49 +616,19 @@ It's always a good idea to check your work with `ls -l backup`. You should see s
 
 ## Searching files
 
-We discussed in a previous episode how to search within a file using `less`. We can also
-search within files without even opening them, using `grep`. `grep` is a command-line
-utility for searching plain-text files for lines matching a specific set of 
-characters (sometimes called a string) or a particular pattern 
-(which can be specified using something called regular expressions). We're not going to work with 
-regular expressions in this lesson, and are instead going to specify the strings 
-we are searching for.
-Let's give it a try!
+We discussed in a previous episode how to search within a file using `less` and also how tosearch within files without even opening them, using `grep`. `grep` is a command-line utility for searching plain-text files for lines matching a specific set of characters (sometimes called a string) or a particular pattern (which can be specified using something called **regular expressions**). We're going to use grep to find specific substrings of characters. First, the characters:
 
-> ### Nucleotide abbreviations
-> 
-> The four nucleotides that appear in DNA are abbreviated `A`, `C`, `T` and `G`. 
-> Unknown nucleotides are represented with the letter `N`. An `N` appearing
-> in a sequencing file represents a position where the sequencing machine was not able to 
-> confidently determine the nucleotide in that position. You can think of an `N` as being aNy 
-> nucleotide at that position in the DNA sequence. 
-> 
+### Nucleotide abbreviations
+ 
+The four nucleotides that appear in DNA are abbreviated `A`, `C`, `T` and `G`. Unknown nucleotides are represented with the letter `N`. An `N` appearing in a sequencing file represents a position where the sequencing machine was not able to confidently determine the nucleotide in that position. You can think of an `N` as being aNy nucleotide at that position in the DNA sequence. 
 
-We'll search for strings inside of our fastq files. Let's first make sure we are in the correct 
-directory:
+We'll search for strings on N's inside of our fastq files. Go into your `untrimmed_fastq` directory.
 
-```html
-$ cd ~/MarineGenomics/Week2/untrimmed_fastq
-```
+Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns). Let's search for the string NNNNNNNNNN in the SRR098026 file. Remember to customize the command to fit your own file path, if needed:
 
-
-Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).
-
-> ### Determining quality
-> 
-> In this lesson, we're going to be manually searching for strings of `N`s within our sequence
-> results to illustrate some principles of file searching. It can be really useful to do this
-> type of searching to get a feel for the quality of your sequencing results, however, in your 
-> research you will most likely use a bioinformatics tool that has a built-in program for
-> filtering out low-quality reads. You'll learn how to use one such tool in 
-> [a later lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control/index.html).
-> 
-
-Let's search for the string NNNNNNNNNN in the SRR098026 file:
 ```html
 $ grep NNNNNNNNNN SRR098026.fastq
 ```
-
 
 This command returns a lot of output to the terminal. Every single line in the SRR098026 
 file that contains at least 10 consecutive Ns is printed to the terminal, regardless of how long or short the file is. 
@@ -687,7 +656,10 @@ CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 +SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
+### Determining quality
 
+What we just did was a quick and dirty way to get a feel for the quality of your sequencing results. However, in your 
+research you will most likely use a bioinformatics tool that has a built-in program for filtering out low-quality reads. You'll learn how to use one such tool in [a later lesson](https://github.com/jamiehenzy/Genome_analysis_Explore/blob/main/Variants_tutorial.md#raw-read-quality-control).
 
 ## Exercise
 
@@ -782,7 +754,7 @@ We can check the number of lines in our new file using a command called `wc`.
 in a file. The FASTQ file may change over time, so given the potential for updates, 
 make sure your file matches your instructor's output. 
 
-As of Sept. 2020, wc gives the following output:  
+`wc` gives the following output:  
 
 
 
@@ -809,7 +781,7 @@ $ wc -l bad_reads.txt
 ```
 
 
-### Exercise
+### Exercises
 
 How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
 
@@ -860,7 +832,6 @@ $ wc -l bad_reads.txt
 0 bad_reads.txt
 ```
 
-
 Here, the output of our second  call to `wc` shows that we no longer have any lines in our `bad_reads.txt` file. This is 
 because the second file we searched (`SRR097977.fastq`) does not contain any lines that match our
 search sequence. So our file was overwritten and is now empty.
@@ -873,22 +844,18 @@ $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
-
 ```html
 537 bad_reads.txt
 ```
-
 
 ```html
 $ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
-
 ```html
 537 bad_reads.txt
 ```
-
 
 The output of our second call to `wc` shows that we have not overwritten our original data. 
 
@@ -899,11 +866,9 @@ $ grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.txt
 $ wc -l bad_reads.txt
 ```
 
-
 ```html
 537 bad_reads.txt
 ```
-
 
 > ### File extensions - part 2
 > 
@@ -1072,10 +1037,7 @@ foo is abcEFG
 
 Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven’t finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
 
-```html
-$ cd ~/MarineGenomics/week2/untrimmed_fastq
-```
-
+Change into your directory that contains `untrimmed_fastq`.
 
 ```html
 $ for filename in *.fastq
@@ -1209,130 +1171,32 @@ $ for filename in *_2021.txt
 &nbsp;
 
 
-## Writing Scripts and Working with Data
 
-* Questions:
-  + How can we automate a commonly used set of commands?
-* Objectives:
-  + Use the `nano` text editor to modify text files.
-  + Write a basic shell script.
-  + Use the `bash` command to execute a shell script.
-  + Use `chmod` to make a script an executable program.
-* Keypoints:
-  + Scripts are a collection of commands executed together.
-  + Transferring information to and from virtual and local computers.
+### Those keys at the bottom of the nano editor!
 
-<script language="javascript" type="text/javascript">
-function set_page_view_defaults() {
-    document.getElementById('div_win').style.display = 'block';
-    document.getElementById('div_unix').style.display = 'none';
-};
+Remember in the first UNIX tutorial how you used an editor called `nano` to create a file? You may have also been perplexed at the row of symbols at the bottom representing options for various tasks. 
 
-function change_content_by_platform(form_control){
-    if (!form_control || document.getElementById(form_control).value == 'win') {
-        set_page_view_defaults();
-    } else if (document.getElementById(form_control).value == 'unix') {
-        document.getElementById('div_win').style.display = 'none';
-        document.getElementById('div_unix').style.display = 'block';
-    } else {
-        alert("Error: Missing platform value for 'change_content_by_platform()' script!");
-    }
-}
+![alt text](https://github.com/jamiehenzy/Genome-analysis_Unit_1/blob/assets/nano.png)
 
-window.onload = set_page_view_defaults;
-</script>
+The options all begin with a '^' symbol, which indicates the control key (also called the "Ctrl" key). There are various ways in which using the Control key may be described. For example, you may see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down, press the <kbd>X</kbd> key, described as any of:
 
+* `Control-X`
+* `Control+X`
+* `Ctrl-X`
+* `Ctrl+X`
+* `^X`
+* `C-x`
 
-## Writing files
-
-We've been able to do a lot of work with files that already exist, but what if we want to write our own files? We're not going to type in a FASTA file, but we'll see as we go through other tutorials, there are a lot of reasons we'll want to write a file, or edit an existing file.
-
-To add text to files, we're going to use a text editor called Nano. We're going to create a file to take notes about what we've been doing with the data files in `~/MarineGenomics/week2/untrimmed_fastq`.
-
-This is good practice when working in bioinformatics. We can create a file called `README.txt` that describes the data files in the directory or documents how the files in that directory were generated.  As the name suggests, it's a file that we or others should read to understand the information in that directory.
-
-Let's change our working directory to `~/MarineGenomics/week2/untrimmed_fastq` using `cd`,
-then run `nano` to create a file called `README.txt`:
-
-```html
-$ cd ~/MarineGenomics/week2/untrimmed_fastq
-$ nano README.txt
-```
-
-
-You should see something like this: 
-
-![nano201711.png](./figs/fig_week2/nano201711.png)
-
-The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in `nano`. We will talk more about how to interpret this information soon.
-
-
-<details><summary>Which Editor?</summary>
-<p>
-
-> ### Which Editor?
->
-> When we say, "`nano` is a text editor," we really do mean "text": it can
-> only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because it is one of the 
-> least complex text editors. However, because of this trait, it may 
-> not be powerful enough or flexible enough for the work you need to do
-> after this workshop. On Unix systems (such as Linux and Mac OS X),
-> many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which require more time to learn), 
-> or a graphical editor such as
-> [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
-> editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
->
-> No matter what editor you use, you will need to know where it searches
-> for and saves files. If you start it from the shell, it will (probably)
-> use your current working directory as its default location. If you use
-> your computer's start menu, it may want to save files in your desktop or
-> documents directory instead. You can change this by navigating to
-> another directory the first time you "Save As..."
-
-</p>
-</details>
-&nbsp;
-
-Let's type in a few lines of text. Describe what the files in this
-directory are or what you've been doing with them.
-Once we're happy with our text, we can press <kbd>Ctrl</kbd>-<kbd>O</kbd> (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
-holding it down, press the <kbd>O</kbd> key) to write our data to disk. You'll be asked what file we want to save this to:
-press <kbd>Return</kbd> to accept the suggested default of `README.txt`.
-
-Once our file is saved, we can use <kbd>Ctrl</kbd>-<kbd>X</kbd> to quit the editor and
-return to the shell.
-
-> ### Control, Ctrl, or ^ Key
->
-> The Control key is also called the "Ctrl" key. There are various ways
-> in which using the Control key may be described. For example, you may
-> see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down,
-> press the <kbd>X</kbd> key, described as any of:
->
-> * `Control-X`
-> * `Control+X`
-> * `Ctrl-X`
-> * `Ctrl+X`
-> * `^X`
-> * `C-x`
->
-> In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-> This means that you can use <kbd>Ctrl</kbd>-<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>-<kbd>O</kbd> to save your
-> file.
+In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`. This means that you can use <kbd>Ctrl</kbd>-<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>-<kbd>O</kbd> to save your file.
 
 Now you've written a file. You can take a look at it with `less` or `cat`, or open it up again and edit it with `nano`.
-
 
 <details><summary>Exercise</summary>
 <p>
 
 ## Exercise
 
-Open `README.txt` and add the date to the top of the file and save the file. 
+Open nano and add the date to the top of the file and save the file as `README.txt` . 
 
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
@@ -1344,7 +1208,6 @@ Add today's date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by `y` and <
 </p>
 </details>
 &nbsp;
-
 
 
 ## Writing scripts
@@ -1382,7 +1245,6 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 
 ## Exercise
-
 
 We want the script to tell us when it's done.  
 1. Open `bad-reads-script.sh` and add the line `echo "Script finished!"` after the `grep` command and save the file.  
