@@ -1,19 +1,8 @@
 # Part 3: Applying UNIX commands to sequencing data
 ---
 
-In this tutorial, you'll strengthen and expand your UNIX skills, applying them to sequencing data and information on sea cucumbers. In the course data folder you'll find a directory called "untrimmed_fastq", containing files filled with reads produced from samples from sea cucumbers collected off the coast of Washington state.
+In this tutorial, you'll strengthen and expand your UNIX skills, applying them to sequencing data and information on sea cucumbers. In the course data folder you'll find a directory called "untrimmed_fastq", containing files filled with reads produced from samples from sea cucumbers collected off the coast of Washington state. **Copy** these into your own student folder to work with.
 
-```html
-wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2.tar.gz
-```
-
-Use tar to uncompress and unzip the file
-
-```html
-
-tar -xzvf week2.tar.gz
-
-```
 
 ## FASTQ files
 
@@ -204,15 +193,15 @@ This will print out all of the contents of the `SRR098026.fastq` to the screen.
 
 ## Exercise
 
-1. Print out the contents of the `~/MarineGenomics/week2/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file? 
+1. From the top level of your student directory, print out the contents of the `SRR097977.fastq` file. What is the last line of the file? 
 2. From your home directory, and without changing directories, use one short command to print the contents of all of the files in
-the `./MarineGenomics/Week2/untrimmed_fastq` directory.
+the `untrimmed_fastq` directory.
  
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
  1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
- 2. `cat ./data_week2/Week2/data_week2/untrimmed_fastq/*`
+ 2. `cat /courses/BIOL3411.202540/students/jhenzy/01/untrimmed_fastq/*` (your exact path may differ!)
  
 </p>
 </details>
@@ -392,8 +381,6 @@ The `#` character and each of the `!` characters represent the encoded quality f
 individual nucleotide. The numerical value assigned to each of these characters depends on the 
 sequencing platform that generated the reads. The sequencing machine used to generate our data 
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.
-
-Here is a link showing what those different symbols mean for quality scores:  https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm
 
 
 Each character is assigned a quality score between 0 and 42 as shown in the chart below.
