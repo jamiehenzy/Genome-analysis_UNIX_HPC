@@ -8,3 +8,6 @@ To earn full credit:
 + README file describes contents and any other information useful to the "user"
 + Assignments are user-friendly: hash-commented and extraneous output deleted
 + Assignments are complete
+
+
+Upon successful completion of this module, you'll be able to add to the skills section of your resumé: "Basic UNIX/Linux command-line proficiency"!
