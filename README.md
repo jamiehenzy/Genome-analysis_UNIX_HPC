@@ -3,7 +3,7 @@ This repo contains material for Assignment 1 of the Genome Analysis course at No
 Submit your work in your student directory on Explorer. Since you performed 1_UNIX.md locally, you'll need to transfer the text file of your work to your Explorer directory. Do this through [Open On Demand](https://ood.explorer.northeastern.edu/). In the File menu choose Home Directory to display the contents of the directory. You can change the directory to your student directory to see its contents. Then use the Upload button to upload a file from your computer to whichever directory you have chosen.
 
 To earn full credit:
-+ Submission is in your student directory by due date
++ All files from assignment are in your student directory by due date
 + Files are well named and well organized
 + README file describes contents and any other information useful to the "user"
 + Assignments are user-friendly: hash-commented and extraneous output deleted
