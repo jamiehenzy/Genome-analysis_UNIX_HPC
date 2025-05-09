@@ -10,4 +10,4 @@ To earn full credit:
 + Assignments are complete
 
 
-Upon successful completion of this module, you'll be able to add to the skills section of your resumé: "Basic UNIX/Linux command-line proficiency"!
+Upon successful completion of this module, you'll be able to add to the skills section of your resumé: "Basic UNIX/Linux command-line proficiency."
